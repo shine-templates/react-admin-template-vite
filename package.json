@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@reduxjs/toolkit": "^1.8.1",
     "@types/node": "^18.0.0",
     "ahooks": "^3.3.10",

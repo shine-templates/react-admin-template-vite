@@ -5,14 +5,16 @@ import Styles from './Header.module.scss'
 import { useAppSelector, useAppDispatch } from 'store/store'
 import { selectGlobal, toggleMenu } from 'store/modules/global'
 import { useNavigate } from 'react-router-dom'
-import classNames from 'classnames'
 import configs from 'configs'
 import corra from 'assets/images/avatar.jpg'
+import type { MenuProps } from 'antd/es/menu'
 const { Header } = Layout
 
 interface IHeaderProps {
   showMenu?: boolean
 }
+
+type MenuItem = Required<MenuProps>['items'][number]
 
 const User: FC = () => {
   const navigate = useNavigate()
@@ -25,45 +27,30 @@ const User: FC = () => {
     }
   }, [])
 
-  const menu = (
-    <Menu>
-      <Menu.Item key={1}>
-        <>
-          修改手机号
-          <EditOutlined style={{ marginLeft: 5 }} />
-        </>
-      </Menu.Item>
-      <Menu.Divider />
-      <Menu.Item
-        onClick={() => {
-          Modal.confirm({
-            title: '确认退出登录？',
-            onOk: () => {
-              sessionStorage.clear()
-              navigate('/login', { replace: true })
-            },
-          })
-        }}
-        key={2}
-      >
-        <>
-          退出登录
-          <LoginOutlined style={{ marginLeft: 5 }} />
-        </>
-      </Menu.Item>
-    </Menu>
-  )
+  const items: MenuItem[] = [
+    { label: '修改密码', key: '0', icon: <EditOutlined />, onClick: () => {} },
+    { type: 'divider' },
+    {
+      label: '退出登录',
+      key: '1',
+      icon: <LoginOutlined />,
+      onClick: () => {
+        Modal.confirm({
+          title: '确认退出登录？',
+          onOk: () => {
+            sessionStorage.clear()
+            navigate('/login', { replace: true })
+          },
+        })
+      },
+    },
+  ]
 
   return (
     <Row align='middle'>
-      <Avatar
-        style={{
-          marginLeft: 30,
-        }}
-        src={corra}
-      />
-      <Dropdown overlay={menu}>
-        <span style={{ cursor: 'pointer', paddingLeft: 10, marginRight: 20 }}>{userInfo.userName}</span>
+      <Avatar src={corra} className={Styles.avatar} />
+      <Dropdown overlay={<Menu items={items} />}>
+        <span className={Styles.userName}>{userInfo.userName}</span>
       </Dropdown>
     </Row>
   )
@@ -74,7 +61,7 @@ export default memo((props: IHeaderProps) => {
   const dispatch = useAppDispatch()
 
   return (
-    <Header className={classNames([Styles.headerPanel])}>
+    <Header className={Styles.headerPanel}>
       {React.createElement(globalState.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
         className: 'trigger',
         onClick: () => dispatch(toggleMenu(!globalState.collapsed)),

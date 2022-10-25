@@ -1,0 +1,30 @@
+.menuPanel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.menuTip {
+  opacity: 0.4;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+}
+
+.menuLogo {
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menuMiniLogo {
+  width: 28px;
+  height: 28px;
+}
+
+.logoFull {
+  width: 184px;
+  height: 32px;
+}

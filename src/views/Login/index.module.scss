@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: url('../../assets/images/corra.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.wrapper {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leftWrapper {
+  width: 766px;
+  height: 615px;
+  // background: url('../../assets/images/zuoce-img.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.formWrapper {
+  width: 538px;
+  height: 613px;
+  background: #fff;
+  box-shadow: 0px 0px 20px 0px rgba(216, 224, 240, 0.8);
+  border-radius: 8px;
+}
+
+.systemTitle {
+  font-size: 34px;
+  text-align: center;
+  font-family: 'SourceHanSansCN-Medium';
+  font-weight: 500;
+  color: #333333;
+  line-height: 66px;
+  margin-top: 34px;
+}
+
+@media screen and (max-width: 2560px) {
+  .wrapper {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  .wrapper {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .wrapper {
+    width: 90%;
+  }
+}

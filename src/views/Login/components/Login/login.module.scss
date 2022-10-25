@@ -1,0 +1,16 @@
+.formContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.loginFormForgot {
+  cursor: pointer;
+  float: right;
+  font-size: 14px;
+  font-family: 'MicrosoftYaHei';
+  font-weight: 400;
+  color: #427cea;
+  &:active {
+    opacity: 0.5;
+  }
+}

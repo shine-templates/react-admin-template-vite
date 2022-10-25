@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.ant-layout-header {
+  padding: 0 20px !important;
+}
+
+@font-face {
+  font-family: 'SourceHanSansCN-Medium';
+  src: url('./assets/font/SourceHanSansCN-Medium-2.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 搜索 新增 按钮距离表格距离 */
+.marginBottom-10 {
+  margin-bottom: 10px;
+}
+
+.marginTop-10 {
+  margin-top: 10px;
+}
+
+/* form 表单内的控件的宽度 */
+.formWidgetWidth {
+  width: 286px !important;
+}
+
+/* 搜索项表单宽度 */
+.searchWidgetWidth {
+  width: 200px !important;
+}
+
+/* 渲染html */
+.content-html {
+  width: 100%;
+}

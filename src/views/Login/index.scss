@@ -1,0 +1,16 @@
+:global(.login-tab > .ant-tabs-top > .ant-tabs-nav::before) {
+  border-bottom: 0px;
+}
+
+.login-tab > .ant-tabs-top > .ant-tabs-nav::before {
+  border-bottom: 0px;
+}
+
+.login-tab > .ant-tabs > .ant-tabs-nav .ant-tabs-nav-wrap > .ant-tabs-nav-list > .ant-tabs-tab {
+  font-size: 26px;
+  font-family: 'SourceHanSansCN-Medium';
+}
+.login-tab > .ant-tabs > .ant-tabs-nav .ant-tabs-nav-wrap > .ant-tabs-nav-list > .ant-tabs-ink-bar {
+  height: 4px;
+  border-radius: 2px;
+}

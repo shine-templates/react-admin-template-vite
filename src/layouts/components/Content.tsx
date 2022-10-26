@@ -9,21 +9,18 @@ import { switchFullPage } from 'store/modules/global'
 
 const { Content } = Layout
 
-const PageBox = memo(
-  ({
-    children,
-    isFullPage,
-  }: React.PropsWithChildren<{
-    isFullPage?: boolean
-  }>) => {
-    const dispatch = useAppDispatch()
-    useEffect(() => {
-      dispatch(switchFullPage(isFullPage))
-    }, [isFullPage])
+const Page = memo(({ children, isFullPage }: React.PropsWithChildren<{ isFullPage?: boolean }>) => {
+  const dispatch = useAppDispatch()
+  useEffect(() => {
+    dispatch(switchFullPage(isFullPage))
+  }, [isFullPage])
 
+  if (isFullPage) {
     return <>{children}</>
-  },
-)
+  }
+
+  return <Content>{children}</Content>
+})
 
 const PageLoading = memo(() => (
   <div className={Styles.loading}>
@@ -46,9 +43,9 @@ const renderRoutes = (routes: IRouter[], parentPath = ''): React.ReactNode[] =>
           key={index}
           path={currentPath}
           element={
-            <PageBox isFullPage={route.isFullPage}>
+            <Page isFullPage={route.isFullPage}>
               <Component />
-            </PageBox>
+            </Page>
           }
         >
           {children && renderRoutes(children, currentPath)}

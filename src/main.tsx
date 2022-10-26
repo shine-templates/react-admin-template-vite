@@ -10,6 +10,7 @@ import configs from 'configs'
 import 'antd/dist/antd.less'
 import './index.css'
 import 'virtual:svg-icons-register'
+import 'moment/locale/zh-cn'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <ConfigProvider locale={zhCN}>

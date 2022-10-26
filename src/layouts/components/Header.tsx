@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import configs from 'configs'
 import corra from 'assets/images/avatar.jpg'
 import type { MenuProps } from 'antd/es/menu'
+import Breadcrumb from './Breadcrumb'
 const { Header } = Layout
 
 interface IHeaderProps {
@@ -62,10 +63,13 @@ export default memo((props: IHeaderProps) => {
 
   return (
     <Header className={Styles.headerPanel}>
-      {React.createElement(globalState.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-        className: 'trigger',
-        onClick: () => dispatch(toggleMenu(!globalState.collapsed)),
-      })}
+      <Row align='middle'>
+        {React.createElement(globalState.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+          className: 'trigger',
+          onClick: () => dispatch(toggleMenu(!globalState.collapsed)),
+        })}
+        <Breadcrumb style={{ marginLeft: 20 }} />
+      </Row>
       <User />
     </Header>
   )

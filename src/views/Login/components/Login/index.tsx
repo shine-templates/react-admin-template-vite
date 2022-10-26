@@ -15,9 +15,9 @@ const Login: React.FC<{ resetPassword: () => void }> = ({ resetPassword }) => {
   const navigate = useNavigate()
   const [form] = Form.useForm()
 
-  useEffect(() => {
-    form.setFieldsValue(fileds)
-  }, [form])
+  // useEffect(() => {
+  //   form.setFieldsValue(fileds)
+  // }, [form])
 
   const onFinish = (values: { phone: string; password: string; remember: boolean }) => {
     navigate('/dashboard', { replace: true })
@@ -25,7 +25,13 @@ const Login: React.FC<{ resetPassword: () => void }> = ({ resetPassword }) => {
 
   return (
     <div className={Styles.formContainer}>
-      <Form form={form} name='normal_login' className='login-form' onFinish={onFinish}>
+      <Form
+        form={form}
+        name='normal_login'
+        className='login-form'
+        onFinish={onFinish}
+        initialValues={{ phone: '123456789', password: 'admin', remember: true }}
+      >
         <Form.Item name='phone' rules={[{ required: true, message: '用户名/手机号输入有误' }]}>
           <Input placeholder='请输入手机号/用户名' className='input_style' />
         </Form.Item>

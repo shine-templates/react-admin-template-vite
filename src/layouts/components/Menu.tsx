@@ -18,7 +18,6 @@ const renderMenuItems =
     menu.map((item) => {
       const navigate = useNavigate()
       const { children, meta, path } = item
-
       if (!meta) {
         return null
       }
@@ -61,7 +60,7 @@ export default memo(() => {
   }
 
   return (
-    <Layout.Sider trigger={null} width={215} style={{ height: '100%' }} collapsible collapsed={globalState.collapsed}>
+    <Layout.Sider trigger={null} width={215} collapsible collapsed={globalState.collapsed}>
       <Logo collapsed={globalState.collapsed} />
       <Menu
         theme='dark'

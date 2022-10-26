@@ -32,7 +32,7 @@ const routes: IRouter[] = [
   },
   {
     path: '/',
-    redirect: '/login',
+    redirect: '/dashboard',
   },
 ]
 

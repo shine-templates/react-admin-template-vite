@@ -13,7 +13,7 @@ export default () => {
   const [visible, setVisible] = React.useState(false)
 
   const onFinish = (values: { phone: string; captcha: string }) => {
-    navigate('/dashboard', { replace: true })
+    navigate('/', { replace: true })
   }
 
   const getCaptcha = (value: Value) => {

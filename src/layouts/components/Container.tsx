@@ -11,7 +11,14 @@ const SideLayout = memo(() => (
     <Menu />
     <Layout className={Style.sideContainer}>
       <Header />
-      <div style={{ padding: 20, width: '100%', height: '100%', boxSizing: 'border-box' }}>
+      <div
+        style={{
+          padding: 20,
+          width: '100%',
+          height: '100%',
+          boxSizing: 'border-box',
+        }}
+      >
         <Content />
       </div>
     </Layout>

@@ -44,3 +44,10 @@ code {
 .content-html {
   width: 100%;
 }
+
+/* 内容区域高度 */
+:root {
+  --HeaderHeight: 104px;
+  --WrapperHeight: 100vh;
+  --ContentHeight: calc(var(--WrapperHeight) - var(--HeaderHeight));
+}

@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
 import { Button } from 'antd'
+import { useNavigate } from 'react-router-dom'
 
 import Light403Icon from 'assets/svg/assets-result-403.svg?component'
 import Light404Icon from 'assets/svg/assets-result-404.svg?component'
@@ -38,12 +39,20 @@ const errorInfo = {
 
 const ErrorPage: React.FC<IErrorPageProps> = (props) => {
   const info = errorInfo[props.code]
+  const navigate = useNavigate()
   return (
     <div className={style.errorBox}>
       {info?.icon}
       <div className={style.title}>{info?.title}</div>
       <div className={style.description}>{info?.desc}</div>
-      <Button type='primary'>返回首页</Button>
+      <Button
+        type='primary'
+        onClick={() => {
+          navigate('/', { replace: true })
+        }}
+      >
+        返回首页
+      </Button>
     </div>
   )
 }

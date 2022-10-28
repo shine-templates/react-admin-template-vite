@@ -20,7 +20,7 @@ const Login: React.FC<{ resetPassword: () => void }> = ({ resetPassword }) => {
   // }, [form])
 
   const onFinish = (values: { phone: string; password: string; remember: boolean }) => {
-    navigate('/dashboard', { replace: true })
+    navigate('/', { replace: true })
   }
 
   return (

@@ -65,10 +65,9 @@ export default memo(() => {
       <Menu
         theme='dark'
         mode='inline'
-        defaultSelectedKeys={[location.pathname]}
         openKeys={globalState.openKeys}
-        defaultOpenKeys={globalState.openKeys}
         onOpenChange={onOpenChange}
+        selectedKeys={[location.pathname]}
       >
         {renderMenuItems(router)(auth)}
       </Menu>

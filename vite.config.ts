@@ -46,6 +46,7 @@ export default defineConfig(({ mode }) => {
     server: {
       host: '0.0.0.0',
       port: 1970,
+      open: true,
       proxy: {},
     },
   }

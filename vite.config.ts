@@ -4,8 +4,7 @@ import react from '@vitejs/plugin-react'
 import svgr from '@honkhonk/vite-plugin-svgr'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
-// https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ command, mode }) => {
   return {
     base: mode === 'development' ? '/' : '/react-admin-template-vite/',
     plugins: [

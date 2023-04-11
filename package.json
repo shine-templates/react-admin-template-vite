@@ -9,6 +9,7 @@
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
+    "build:dev": "tsc && vite build --mode development",
     "preview": "vite preview"
   },
   "dependencies": {

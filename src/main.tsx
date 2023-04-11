@@ -7,10 +7,8 @@ import { ConfigProvider } from 'antd'
 import zhCN from 'antd/es/locale/zh_CN'
 import { PersistGate } from 'redux-persist/integration/react'
 import configs from 'configs'
-import 'antd/dist/antd.less'
 import './index.css'
 import 'virtual:svg-icons-register'
-import 'moment/locale/zh-cn'
 import * as Sentry from '@sentry/react'
 import { BrowserTracing } from '@sentry/tracing'
 
@@ -23,7 +21,7 @@ Sentry.init({
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <ConfigProvider locale={zhCN}>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate persistor={persistor}>
         <BrowserRouter basename={configs.PUBLIC_PATH}>
           <App />
         </BrowserRouter>

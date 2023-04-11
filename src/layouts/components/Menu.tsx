@@ -1,5 +1,5 @@
-import { memo } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { memo, useCallback } from 'react'
+import { useNavigate, useLocation, NavigateFunction } from 'react-router-dom'
 import { Menu, Layout, Row } from 'antd'
 import type { MenuProps } from 'antd'
 import router, { IRouter } from 'router'
@@ -14,9 +14,8 @@ const { SubMenu } = Menu
 
 const renderMenuItems =
   (menu: IRouter[], parentPath = '') =>
-  (auth: string[] = []) =>
+  (auth: string[] = [], navigate: NavigateFunction) =>
     menu.map((item) => {
-      const navigate = useNavigate()
       const { children, meta, path } = item
       if (!meta) {
         return null
@@ -43,7 +42,7 @@ const renderMenuItems =
 
       return (
         <SubMenu key={routerPath} title={title} icon={Icon ? <SvgIcon name={Icon} /> : undefined}>
-          {renderMenuItems(children, routerPath)(auth)}
+          {renderMenuItems(children, routerPath)(auth, navigate)}
         </SubMenu>
       )
     })
@@ -51,6 +50,7 @@ const renderMenuItems =
 export default memo(() => {
   const location = useLocation()
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const globalState = useAppSelector(selectGlobal)
   const { auth } = useAppSelector(selectAuth)
 
@@ -58,6 +58,10 @@ export default memo(() => {
     const latestOpenKey = keys.find((key) => globalState.openKeys.indexOf(key) === -1)
     dispatch(handleOpenkeys(latestOpenKey ? [latestOpenKey] : []))
   }
+
+  const renderMenu = useCallback(() => {
+    return renderMenuItems(router)(auth, navigate) || <></>
+  }, [auth])
 
   return (
     <Layout.Sider trigger={null} width={215} collapsible collapsed={globalState.collapsed}>
@@ -69,7 +73,7 @@ export default memo(() => {
         onOpenChange={onOpenChange}
         selectedKeys={[location.pathname]}
       >
-        {renderMenuItems(router)(auth)}
+        {renderMenu()}
       </Menu>
     </Layout.Sider>
   )

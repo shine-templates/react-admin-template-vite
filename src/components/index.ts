@@ -1,8 +1,5 @@
 export { default as ActionModal } from './ActionModal'
 export { default as Authorized } from './Authorized'
 export { default as BraftEdit } from './BraftEdit'
-export { default as DatePicker } from './DatePicker'
-export { default as ImageCodeModal } from './ImageCodeModal'
-export type { Value } from './ImageCodeModal'
 export { default as ShowComponent } from './ShowComponent'
 export { default as SvgIcon } from './SvgIcon'

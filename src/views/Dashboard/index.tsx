@@ -3,8 +3,7 @@ import { Card, Col, Row, Statistic } from 'antd'
 
 export default () => (
   <div style={{ width: '100%' }}>
-    233
-    {/* <Row gutter={16}>
+    <Row gutter={16}>
       <Col span={12}>
         <Card bordered={false}>
           <Statistic
@@ -29,6 +28,6 @@ export default () => (
           />
         </Card>
       </Col>
-    </Row> */}
+    </Row>
   </div>
 )

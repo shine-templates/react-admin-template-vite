@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import configs from 'configs'
 import Styles from './login.module.scss'
 import './login.css'
-import { useEffect } from 'react'
 
 const fileds = {
   phone: localStorage.getItem(configs.SESSION_KEY + 'phone') || '',
@@ -11,7 +10,7 @@ const fileds = {
   remember: JSON.parse(localStorage.getItem(configs.SESSION_KEY + 'remember') as string),
 }
 
-const Login: React.FC<{ resetPassword: () => void }> = ({ resetPassword }) => {
+const Login: React.FC = () => {
   const navigate = useNavigate()
   const [form] = Form.useForm()
 
@@ -20,7 +19,8 @@ const Login: React.FC<{ resetPassword: () => void }> = ({ resetPassword }) => {
   // }, [form])
 
   const onFinish = (values: { phone: string; password: string; remember: boolean }) => {
-    navigate('/', { replace: true })
+    sessionStorage.setItem('token', 'token')
+    navigate('/Dashboard', { replace: true })
   }
 
   return (
@@ -45,7 +45,7 @@ const Login: React.FC<{ resetPassword: () => void }> = ({ resetPassword }) => {
             <Checkbox>记住密码</Checkbox>
           </Form.Item>
           <Form.Item noStyle>
-            <span onClick={resetPassword} className={Styles.loginFormForgot}>
+            <span onClick={() => {}} className={Styles.loginFormForgot}>
               忘记密码？
             </span>
           </Form.Item>

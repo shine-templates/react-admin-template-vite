@@ -68,7 +68,7 @@ export default memo((props: IHeaderProps) => {
           className: 'trigger',
           onClick: () => dispatch(toggleMenu(!globalState.collapsed)),
         })}
-        <Breadcrumb style={{ marginLeft: 20 }} />
+        {/* <Breadcrumb style={{ marginLeft: 20 }} /> */}
       </Row>
       <User />
     </Header>

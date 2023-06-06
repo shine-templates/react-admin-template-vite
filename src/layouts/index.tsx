@@ -1,16 +1,26 @@
-import { memo, useEffect } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { Layout } from 'antd'
-import LayoutMap from './components/Container'
+import Container from './components/Container'
 import Styles from './index.module.scss'
-import { useAppSelector, useAppDispatch } from 'store/store'
-import { selectGlobal, ELayout, toggleMenu } from 'store/modules/global'
+import { useAppDispatch } from 'store/store'
+import { toggleMenu } from 'store/modules/global'
 import throttle from 'lodash/throttle'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import Login from 'views/Login'
+
+const RequireAuth = ({ children }: { children: JSX.Element }) => {
+  let auth = sessionStorage.getItem('token')
+  let location = useLocation()
+
+  if (!auth) {
+    return <Navigate to='/login' state={{ from: location }} replace />
+  }
+
+  return children
+}
 
 export default memo(() => {
   const dispatch = useAppDispatch()
-  const globalState = useAppSelector(selectGlobal)
-
-  const Container = LayoutMap[globalState.isFullPage ? ELayout.fullPage : globalState.layout]
 
   useEffect(() => {
     const handleResize = throttle(() => {
@@ -29,7 +39,18 @@ export default memo(() => {
 
   return (
     <Layout className={Styles.mainPanel}>
-      <Container />
+      <Routes>
+        <Route path='/login' element={<Login />} />
+        <Route
+          path='/*'
+          element={
+            <RequireAuth>
+              <Container />
+            </RequireAuth>
+          }
+        />
+        <Route path='*' element={<Navigate to='/login' replace />} />
+      </Routes>
     </Layout>
   )
 })

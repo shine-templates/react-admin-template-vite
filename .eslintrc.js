@@ -18,7 +18,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'eslint-plugin-prettier'],
+  plugins: ['react', '@typescript-eslint', 'eslint-plugin-prettier', 'react-hooks'],
   rules: {
     'no-shadow': 'off',
     'no-param-reassign': ['error', { props: false }],
@@ -29,6 +29,10 @@ module.exports = {
         allowForLoopAfterthoughts: true,
       },
     ],
+    // 检查 Hooks 的使用规则
+    'react-hooks/rules-of-hooks': 'error',
+    // 检查依赖项的声明
+    'react-hooks/exhaustive-deps': 'warn',
     'react/display-name': 'off',
     // jsx 单引号
     'jsx-quotes': [2, 'prefer-single'],
@@ -59,4 +63,4 @@ module.exports = {
       },
     ],
   },
-};
+}

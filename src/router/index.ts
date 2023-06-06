@@ -4,9 +4,7 @@ import otherRouter from './modules/otherRouter'
 
 export interface IRouter {
   path: string
-  redirect?: string
   Component?: React.FC<BrowserRouterProps> | (() => any)
-  isFullPage?: boolean
   meta?: {
     title?: string
     Icon?: string
@@ -17,22 +15,13 @@ export interface IRouter {
 
 const routes: IRouter[] = [
   {
-    path: '/login',
-    isFullPage: true,
-    Component: lazy(() => import('views/Login')),
-  },
-  {
-    path: '/dashboard',
+    path: '/Dashboard',
     Component: lazy(() => import('views/Dashboard')),
     meta: {
       title: '工作台',
       Icon: 'gzt',
       role: '工作台',
     },
-  },
-  {
-    path: '/',
-    redirect: '/dashboard',
   },
 ]
 

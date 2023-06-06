@@ -33,7 +33,9 @@ const renderMenuItems =
           <Menu.Item
             key={routerPath}
             icon={Icon ? <SvgIcon name={Icon} /> : undefined}
-            onClick={() => navigate(routerPath)}
+            onClick={() => {
+              navigate(routerPath)
+            }}
           >
             <Row align='middle'>{title}</Row>
           </Menu.Item>

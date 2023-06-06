@@ -19,7 +19,8 @@ const Login: React.FC = () => {
   // }, [form])
 
   const onFinish = (values: { phone: string; password: string; remember: boolean }) => {
-    navigate('/', { replace: true })
+    sessionStorage.setItem('token', 'token')
+    navigate('/Dashboard', { replace: true })
   }
 
   return (

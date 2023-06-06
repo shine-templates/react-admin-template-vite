@@ -48,7 +48,7 @@ const ErrorPage: React.FC<IErrorPageProps> = (props) => {
       <Button
         type='primary'
         onClick={() => {
-          navigate('/', { replace: true })
+          navigate('/Dashboard', { replace: true })
         }}
       >
         返回首页
